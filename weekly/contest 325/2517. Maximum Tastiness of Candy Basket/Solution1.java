@@ -1,0 +1,38 @@
+import java.util.Arrays;
+
+//---------BINARY SEARCH
+
+class Solution {
+    public int maximumTastiness(int[] price, int k) {
+        int n = price.length;
+        Arrays.sort(price);
+        int h = price[n - 1] - price[0];
+        int l = 0;
+        int ans = h;
+        while (l <= h) {
+            int mid = l + (h - l) / 2;
+            if (isPossible(mid, price, k)) {
+                ans = mid;
+                l = mid + 1;
+            } else {
+                h = mid - 1;
+            }
+        }
+        return ans;
+    }
+
+    private boolean isPossible(int mid, int[] price, int k) {
+        int prev = 0;
+        int cnt = 1, i = 0;
+        while (i < price.length) {
+            if (price[i] - price[prev] >= mid) {
+                prev = i;
+                cnt++;
+            }
+            i++;
+        }
+        return cnt >= k;
+    }
+}
+// Time complexity : O(n*log A) , A = price[0]- price[n-1] , max possible
+// difference
