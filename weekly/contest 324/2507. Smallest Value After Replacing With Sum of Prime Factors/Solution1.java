@@ -1,28 +1,17 @@
+
 class Solution {
     public int smallestValue(int n) {
         int min = n;
-        while (!isPrime(n)) {
-
+        while (true) {
             int new_n = f(n);
             if (new_n == n)
                 return min;
             n = new_n;
             min = Math.min(min, n);
-
         }
-        return min;
     }
 
-    private boolean isPrime(int num) {
-        if (num == 1)
-            return false;
-        for (int i = 2; i < num; i++) {
-            if (num % i == 0)
-                return false;
-        }
-        return true;
-    }
-
+    // no need to check wheather it is prime or not, if(new_n==n) handling it
     public int f(int num) {
         if (num == 1)
             return num;
@@ -33,3 +22,5 @@ class Solution {
         return num;
     }
 }
+// Time complexity : Linear time complexity
+// Space complexity : O(n) due to recursion

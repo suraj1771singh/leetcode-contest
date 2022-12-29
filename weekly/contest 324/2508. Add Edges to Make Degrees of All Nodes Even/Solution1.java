@@ -14,6 +14,8 @@ class Solution {
             if (adj.get(i).size() % 2 == 1)
                 list.add(i);
         }
+        if (list.size() == 0)
+            return true;
 
         if (list.size() % 2 == 1 || list.size() > 4) // if size is odd
             return false;
@@ -44,7 +46,6 @@ class Solution {
 
             }
         }
-        // System.out.println(list);
         for (int i : list)
             if (i != -1)
                 return false;
@@ -52,3 +53,5 @@ class Solution {
 
     }
 }
+// Time complexity : O(edges)
+// Space complexity : O(edges)
