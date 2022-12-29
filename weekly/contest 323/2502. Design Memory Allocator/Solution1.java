@@ -17,7 +17,7 @@ class Allocator {
                 ind = -1;
             }
             if (len == size) {
-                for (int j = ind; j < len; j++)
+                for (int j = ind; j < ind+len; j++)
                     memo[j] = mID;
 
                 return ind;
@@ -27,6 +27,7 @@ class Allocator {
     }
 
     public int free(int mID) {
+        
         int cnt = 0;
         for (int i = 0; i < memo.length; i++) {
             if (memo[i] == mID) {
@@ -37,10 +38,3 @@ class Allocator {
         return cnt;
     }
 }
-
-/**
- * Your Allocator object will be instantiated and called as such:
- * Allocator obj = new Allocator(n);
- * int param_1 = obj.allocate(size,mID);
- * int param_2 = obj.free(mID);
- */

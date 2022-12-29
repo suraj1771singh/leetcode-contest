@@ -12,6 +12,7 @@ class Solution {
             if (set.contains(i)) {
                 int len = 1;
                 int ele = i;
+                set.remove(ele);
                 while (set.contains(ele * ele)) {
                     len++;
                     set.remove(ele * ele);
@@ -21,6 +22,6 @@ class Solution {
 
             }
         }
-        return ans;
+        return ans==1 ? -1 : ans;
     }
 }
