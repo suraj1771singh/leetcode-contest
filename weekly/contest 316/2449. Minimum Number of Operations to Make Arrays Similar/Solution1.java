@@ -27,6 +27,7 @@ class Solution {
         for (int i = 0; i < listOddNums.size(); i++) {
             int x = listOddNums.get(i) - listOddTarget.get(i);
             if (x > 0) res += x >> 1;
+        
         }
         return res;
     }
